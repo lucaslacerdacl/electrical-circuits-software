@@ -3,37 +3,31 @@
 
 using namespace std;
 
-/*
- * Classes
- */
-#include "ElectricComponent.h"
-#include "ElectricSegment.h"
-#include "ElectricCircuit.h"
-
-/*
- * Constant of the component type
- */
-const string RESISTOR   = "RESISTOR";
-const string INDUCTOR   = "INDUCTOR";
-const string CAPACITOR  = "CAPACITOR";
-const string KEY        = "KEY";
-const string SOURCE     = "SOURCE";
+#include "Node.h"
+#include "Segment.h"
+#include "ComponentPlatform.h"
+#include "components/Capacitor.h"
 
 int main() {
-    ElectricComponent *component1 = new ElectricComponent(1, 220, RESISTOR);
-    ElectricComponent *component2 = new ElectricComponent(2, 127, INDUCTOR);
+    Node *node1 = new Node(1, 220.0);
+    Node *node2 = new Node(2, 127.0);
 
-    ElectricSegment *segment = new ElectricSegment(1, component1, component2);
+    cout << "Id do nó 1: " << node1->getId() << endl;
+    cout << "Tensão do nó 1: " << node1->getVoltage() << endl;
 
-    cout << "Id do segmento: " << segment->id << endl;
+    cout << "Id do nó 2: " << node2->getId() << endl;
+    cout << "Tensão do nó 2: " << node2->getVoltage() << endl;
 
-    cout << "Id do primeiro componente " << segment->component1->id << endl;
-    cout << "Tensão do primeiro componente " << segment->component1->voltage << endl;
-    cout << "Tipo do primeiro componente " << segment->component1->type << endl;
+    Segment *segment = new Segment(1, node1, node2, 20.0, 2.0);
 
-    cout << "Id do segundo componente " << segment->component2->id << endl;
-    cout << "Tensão do segundo componente " << segment->component1->voltage << endl;
-    cout << "Tensão do segundo componente " << segment->component1->type << endl;
+    cout << "Id do segmento: " << segment->getId() << endl;
+    cout << "Id do nó 1 no segmento: " << segment->getNode1().getId() << endl;
+    cout << "Id do nó 2 no segmento: " << segment->getNode2().getId() << endl;
+    cout << "Resistência do segmento: " << segment->getResistence() << endl;
+    cout << "Corrente do segmento: " << segment->getCurrent() << endl;
+
+    Capacitor *capacitor = new Capacitor(1, node1, node2, 20.0, 2.0);
+    cout << "Tensão no capacitor: " << capacitor->calculateVoltage() << endl;
 
     return 0;
 };
