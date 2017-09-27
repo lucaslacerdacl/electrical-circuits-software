@@ -3,6 +3,8 @@
 
 The objective of this project is to model a software to provide a certain set of classes with methods and attributes that allow to calculate an electric circuit. 
 
+![classes-diagram](./ElectricSystem.png)
+
 ## Licensing
 
 Released under the MIT license.
