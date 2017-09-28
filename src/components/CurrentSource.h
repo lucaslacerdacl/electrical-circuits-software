@@ -1,7 +1,7 @@
-class Capacitor : public virtual Component {
+class CurrentSource: public virtual Component{
 public:
-    void setCapacitance(double _capacitance);
-    double getCapacitance();
+    void setCurrent(double _current);
+    double getCurrent();
     double calculateVoltage() {
         //Only for examples. Put your implementation here.
         return 1.0;
@@ -15,13 +15,13 @@ public:
         return 1.0;
     };
 private:
-    double capacitance;
+    double current;
 };
 
-void Capacitor::setCapacitance(double _capacitance) {
-    capacitance = _capacitance;
+void CurrentSource::setCurrent(double _current) {
+    current = _current;
 }
 
-double Capacitor::getCapacitance() {
-    return capacitance;
+double CurrentSource::getCurrent() {
+    return current;
 }

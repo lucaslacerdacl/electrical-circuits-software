@@ -1,20 +1,26 @@
 class Node {
 public:
-    Node(int _id, double _voltage);
+    Node(){};
+    ~Node(){};
+    void setId(int _id);
     int getId();
+    void setVoltage(double _voltage);
     double getVoltage();
 private:
     int id;
     double voltage;
 };
 
-Node::Node(int _id, double _voltage) {
+void Node::setId(int _id) {
     id = _id;
-    voltage = _voltage;
 }
 
 int Node::getId() {
     return id;
+}
+
+void Node::setVoltage(double _voltage) {
+    voltage = _voltage;
 }
 
 double Node::getVoltage() {

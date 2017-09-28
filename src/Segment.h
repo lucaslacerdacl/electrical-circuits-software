@@ -1,44 +1,40 @@
 class Segment {
 public:
-    Segment(int _id, Node *_node1, Node *_node2, double _resistence, double _current);
+    Segment(){};
+    ~Segment(){};
+    void setId(int _id);
     int getId();
-    Node getNode1();
-    Node getNode2();
-    double getResistence();
-    double getCurrent();
+    void setNode(vector<Node> node);
+    vector<Node> getNode();
+    void setComponent(Component *_component);
+    Component* getComponent();
 protected:
     int id;
-    Node *node1;
-    Node *node2;
-    double resistence;
-    double current;
+    vector<Node> node;
+    Component *component;
 };
 
-Segment::Segment(int _id, Node *_node1, Node *_node2, double _resistence, double _current) {
+void Segment::setId(int _id) {
     id = _id;
-    node1 = _node1;
-    node2 = _node2;
-    resistence = _resistence;
-    current = _current;
 }
 
 int Segment::getId() {
     return id;
 }
 
-Node Segment::getNode1() {
-    return *node1;
+void Segment::setNode(vector<Node> _node) {
+    node = _node;
 }
 
-Node Segment::getNode2() {
-    return *node2;
+vector<Node> Segment::getNode() {
+    return node;
 }
 
-double Segment::getResistence() {
-    return resistence;
+void Segment::setComponent(Component *_component) {
+    component = _component;
 }
 
-double Segment::getCurrent() {
-    return current;
+Component* Segment::getComponent() {
+    return component;
 }
 

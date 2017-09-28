@@ -1,7 +1,7 @@
-class Capacitor : public virtual Component {
+class Key: public Component{
 public:
-    void setCapacitance(double _capacitance);
-    double getCapacitance();
+    void setIsOn(bool _isOn);
+    double getIsOn();
     double calculateVoltage() {
         //Only for examples. Put your implementation here.
         return 1.0;
@@ -15,13 +15,13 @@ public:
         return 1.0;
     };
 private:
-    double capacitance;
+    double isOn;
 };
 
-void Capacitor::setCapacitance(double _capacitance) {
-    capacitance = _capacitance;
+void Key::setIsOn(bool _isOn) {
+    isOn = _isOn;
 }
 
-double Capacitor::getCapacitance() {
-    return capacitance;
+double Key::getIsOn() {
+    return isOn;
 }
